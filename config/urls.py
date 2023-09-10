@@ -41,7 +41,8 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('murabbiylar/', include('murabbiylar.urls')),
-    path('sport_app/', include('sport_app.urls')),
+    path('sport_apps/', include('sport_app.urls')),
+    path('gym_apps/', include('gym_app.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='api_token'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0)),
 ]
