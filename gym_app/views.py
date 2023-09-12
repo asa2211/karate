@@ -3,11 +3,13 @@ from django.shortcuts import render
 from rest_framework import generics
 from .models import GymModel
 from .serializers import GymSerializers
+from config.permissions import AdminPermission, UserPermission
 
 
 class GymApiView(generics.ListCreateAPIView):
     queryset = GymModel.objects.all()
     serializer_class = GymSerializers
+    permission_classes = (AdminPermission,)
 
     def get_queryset(self):
         queryset = GymModel.objects.all()
@@ -25,3 +27,4 @@ class GymApiView(generics.ListCreateAPIView):
 class UpdateGymApiView(generics.RetrieveUpdateDestroyAPIView):
     queryset = GymModel.objects.all()
     serializer_class = GymSerializers
+    permission_classes = (AdminPermission,)
